@@ -1,6 +1,14 @@
-maintainer       "YOUR_COMPANY_NAME"
-maintainer_email "YOUR_EMAIL"
-license          "All rights reserved"
-description      "Installs/Configures devtools"
+maintainer       "Nicholas Whitt"
+maintainer_email "nick.whitt@gmail.com"
+license          "Apache 2.0"
+description      "Installs/Configures development tools"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.1.0"
+
+depends "apache2"
+depends "php"
+depends "mysql"
+
+supports "ubuntu"
+
+recipe "xdebug", "PHP debugging extension"
