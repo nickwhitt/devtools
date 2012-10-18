@@ -1,8 +1,5 @@
 [xdebug]
 zend_extension=<%= `find /usr -name "xdebug.so" | tr -d "\n"` %>
-xdebug.cli_color = <%= @params['cli_color'] %>
-xdebug.scream = <%= @params['scream'] %>
-xdebug.max_nesting_level = <%= @params['max_nesting_level'] %>
-xdebug.var_display_max_children = <%= @params['var_display_max_children'] %>
-xdebug.var_display_max_data = <%= @params['var_display_max_data'] %>
-xdebug.var_display_max_depth = <%= @params['var_display_max_depth'] %>
+<% @params.each do |directive, value| -%>
+xdebug.<%= directive %> = <%= value %>
+<% end -%>
