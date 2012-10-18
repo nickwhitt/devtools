@@ -12,3 +12,4 @@ depends "mysql"
 supports "ubuntu"
 
 recipe "xdebug", "PHP debugging extension"
+recipe "mailcatcher", "Sendmail/SMTP replacement for email interception"
