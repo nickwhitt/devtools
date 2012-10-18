@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+	ServerName webgrind.<%= node[:fqdn] %>
+	DocumentRoot <%= @params[:docroot] %>
+	
+	<Directory <%= @params[:docroot] %>>
+		Options -Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
