@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+	ServerName phpmyadmin.<%= node[:fqdn] %>
+	DocumentRoot <%= @params[:docroot] %>
+	
+	<Directory "<%= @params[:docroot] %>">
+		Options Indexes FollowSymLinks
+		Order allow,deny
+		Allow from all
+	</Directory>
+	
+	<Directory "<%= @params[:docroot] %>/libraries">
+		Order deny,allow
+		Deny from all
+	</Directory>
+	<Directory "<%= @params[:docroot] %>/setup/lib">
+		Order deny,allow
+		Deny from all
+	</Directory>
+</VirtualHost>
