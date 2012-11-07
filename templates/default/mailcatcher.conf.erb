@@ -1,0 +1,4 @@
+<VirtualHost *:80>
+	ServerName mail.<%= node[:fqdn] %>
+	RedirectPermanent / http://<%= node[:fqdn] %>:1080/
+</VirtualHost>

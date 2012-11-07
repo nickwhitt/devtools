@@ -25,3 +25,7 @@ bash "mailcatcher" do
   eth1_ip = node[:network][:interfaces][:eth1][:addresses].select{|key,val| val[:family] == 'inet'}.flatten[0]
   code "mailcatcher --http-ip #{eth1_ip}"
 end
+
+web_app "mail" do
+  template "mailcatcher.conf.erb"
+end
