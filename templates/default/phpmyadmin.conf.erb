@@ -34,7 +34,7 @@ dbc_dbpass='<%= @params[:password] %>'
 # dbc_dbserver: database host.  
 #	leave unset to use localhost (or a more efficient local method
 #	if it exists).
-dbc_dbserver='<%= @params[:host] %>'
+dbc_dbserver='<%= node['phpmyadmin']['host'] %>'
 
 # dbc_dbport: remote database port
 #	leave unset to use the default.  only applicable if you are

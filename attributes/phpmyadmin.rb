@@ -19,7 +19,18 @@
 #
 
 default['phpmyadmin']['docroot'] = "/usr/share/phpmyadmin"
-default['phpmyadmin']['username'] = "phpmyadmin"
-default['phpmyadmin']['password'] = "BvdiqWaDgUwm"
 default['phpmyadmin']['host'] = "localhost"
-default['phpmyadmin']['database'] = "phpmyadmin"
+
+default['phpmyadmin']['config']['blowfish_secret'] = Digest::SHA1.hexdigest(IO.read('/dev/urandom', 2048))
+default['phpmyadmin']['config']['auth_type'] = 'config'
+default['phpmyadmin']['config']['user'] = 'root'
+default['phpmyadmin']['config']['password'] = 'root'
+default['phpmyadmin']['config']['verbose'] = node['fqdn']
+default['phpmyadmin']['config']['upload_dir'] = ''
+default['phpmyadmin']['config']['save_dir'] = ''
+default['phpmyadmin']['config']['max_rows'] = 30
+default['phpmyadmin']['config']['properties_iconic'] = true;
+
+default['phpmyadmin']['pma']['database'] = "phpmyadmin"
+default['phpmyadmin']['pma']['username'] = "root"
+default['phpmyadmin']['pma']['password'] = "root"
