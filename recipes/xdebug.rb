@@ -18,12 +18,9 @@
 # limitations under the License.
 #
 
-if platform?(%w{debian ubuntu})
-  package "php5-xdebug"
-elsif platform?(%w{centos redhat fedora amazon scientific})
-  php_pear "xdebug" do
-    action :install
-  end
+
+php_pear "xdebug" do
+  action :install
 end
 
 template "#{node['php']['ext_conf_dir']}/xdebug.ini" do
