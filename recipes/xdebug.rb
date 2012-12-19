@@ -18,10 +18,9 @@
 # limitations under the License.
 #
 
-
-php_pear "xdebug" do
-  action :install
-end
+include_recipe "apache2::mod_php5"
+include_recipe "php"
+include_recipe "devtools::xdebug-#{node['xdebug']['source']}"
 
 template "#{node['php']['ext_conf_dir']}/xdebug.ini" do
   mode "0644"

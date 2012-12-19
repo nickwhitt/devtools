@@ -1,7 +1,7 @@
 #
 # Author:: Nicholas Whitt (<nick.whitt@gmail.com>)
 # Cookbook Name:: devtools
-# Attribute:: xdebug
+# Recipe:: xdebug-pear
 #
 # Copyright 2012, Nicholas Whitt.
 #
@@ -18,11 +18,7 @@
 # limitations under the License.
 #
 
-default['xdebug']['source'] = 'pear'
-
-default['xdebug']['max_nesting_level'] = 100
-default['xdebug']['scream'] = 0
-default['xdebug']['cli_color'] = 1
-default['xdebug']['var_display_max_children'] = 128
-default['xdebug']['var_display_max_data'] = 512
-default['xdebug']['var_display_max_depth'] = 3
+php_pear "xdebug" do
+  zend_extensions ['xdebug.so']
+  action :install
+end
