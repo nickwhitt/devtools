@@ -1,7 +1,7 @@
 #
 # Author:: Nicholas Whitt (<nick.whitt@gmail.com>)
 # Cookbook Name:: devtools
-# Recipe:: xdebug-pear
+# Recipe:: phpunit
 #
 # Copyright 2012, Nicholas Whitt.
 #
@@ -18,9 +18,18 @@
 # limitations under the License.
 #
 
-# pear install xdebug
-php_pear "xdebug" do
-  zend_extensions ['xdebug.so']
+# pear channel-discover :channel
+channels = %w{pear.phpunit.de pear.symfony.com pear.symfony-project.com components.ez.no}
+channels.each do |channel|
+  php_pear_channel channel do
+    action [:discover, :update]
+  end
+end
+
+# pear install phpunit/PHPUnit[-3.6.12]
+php_pear "PHPUnit" do
+  channel "phpunit"
+  #version "3.6.12"
   action :install
-  not_if "pear list -a | grep xdebug"
+  not_if "pear list -a | grep PHPUnit"
 end
