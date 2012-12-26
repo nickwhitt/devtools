@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+include_recipe "php"
+
 # pear channel-discover :channel
 channels = %w{pear.phpunit.de pear.symfony.com pear.symfony-project.com components.ez.no}
 channels.each do |channel|

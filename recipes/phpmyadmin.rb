@@ -18,6 +18,12 @@
 # limitations under the License.
 #
 
+include_recipe "apache2"
+include_recipe "apache2::mod_php5"
+include_recipe "php"
+include_recipe "mysql"
+include_recipe "php::module_mysql"
+
 directory "/etc/dbconfig-common/" do
   action :create
   recursive true

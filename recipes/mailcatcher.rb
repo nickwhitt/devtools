@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+include_recipe "apache2"
+
 package "libsqlite3-dev"
 gem_package "mailcatcher"
 

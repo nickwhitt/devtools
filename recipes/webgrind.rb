@@ -18,7 +18,11 @@
 # limitations under the License.
 #
 
-package "git-core"
+include_recipe "apache2"
+include_recipe "apache2::mod_php5"
+include_recipe "php"
+include_recipe "git"
+
 git node['webgrind']['docroot'] do
   repository "git://github.com/jokkedk/webgrind.git"
   reference "master"

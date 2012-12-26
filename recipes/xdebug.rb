@@ -18,6 +18,7 @@
 # limitations under the License.
 #
 
+include_recipe "apache2"
 include_recipe "apache2::mod_php5"
 include_recipe "php"
 include_recipe "devtools::xdebug-#{node['xdebug']['source']}"
