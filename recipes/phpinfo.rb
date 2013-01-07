@@ -37,5 +37,5 @@ end
 web_app "phpinfo" do
   template "phpinfo.conf.erb"
   server_name node[:webapp][:server_name]
-  location node[:webapp][:info_location]
+  docroot node[:webapp][:info_docroot]
 end

@@ -26,4 +26,4 @@ default[:webapp][:allow_override] = ["All"]
 default[:webapp][:directory_index] = []
 
 default[:webapp][:status_location] = "/status"
-default[:webapp][:info_location] = "/var/www/info"
+default[:webapp][:info_docroot] = "/var/www/info"

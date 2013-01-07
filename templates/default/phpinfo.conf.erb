@@ -1,7 +1,8 @@
 <VirtualHost *:80>
   ServerName info.<%= @params[:server_name] %>
-  
-  <Directory <%= @params[:location] %>>
+  DocumentRoot <%= @params[:docroot] %>
+
+  <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
     AllowOverride None
     Order allow,deny
