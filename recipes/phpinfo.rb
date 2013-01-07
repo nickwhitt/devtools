@@ -20,7 +20,7 @@
 
 include_recipe "apache2"
 
-directory node[:webapp][:info_location] do
+directory node[:webapp][:info_docroot] do
   owner node[:apache][:user]
   group node[:apache][:group]
   mode 0755
@@ -28,7 +28,7 @@ directory node[:webapp][:info_location] do
   recursive true
 end
 
-template "#{node[:webapp][:info_location]}/index.php" do
+template "#{node[:webapp][:info_docroot]}/index.php" do
   owner node[:apache][:user]
   group node[:apache][:user]
   source "phpinfo.php.erb"

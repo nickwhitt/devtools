@@ -1,7 +1,7 @@
 <VirtualHost *:80>
   ServerName status.<%= @params[:server_name] %>
   
-  <Location <%= @params[:location] %>>
+  <Location />
     SetHandler server-status
     Order allow,deny
     Allow from all
