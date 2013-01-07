@@ -1,7 +1,7 @@
 #
 # Author:: Nicholas Whitt (<nick.whitt@gmail.com>)
 # Cookbook Name:: devtools
-# Attribute:: webapp
+# Recipe:: status
 #
 # Copyright 2012, Nicholas Whitt.
 #
@@ -18,11 +18,10 @@
 # limitations under the License.
 #
 
-default[:webapp][:proj] = "myproj"
-default[:webapp][:docroot] = "/var/www/#{node[:webapp][:proj]}"
-default[:webapp][:server_name] = node[:fqdn]
-default[:webapp][:options] = ["All"]
-default[:webapp][:allow_override] = ["All"]
-default[:webapp][:directory_index] = []
+include_recipe "apache2"
 
-default[:webapp][:status_location] = "/status"
+web_app "status" do
+  template "status.conf.erb"
+  server_name node[:webapp][:server_name]
+  location node[:webapp][:status_location]
+end
