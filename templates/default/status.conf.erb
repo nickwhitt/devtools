@@ -1,5 +1,5 @@
 <VirtualHost *:80>
-  ServerName <%= @params[:server_name] %>
+  ServerName status.<%= @params[:server_name] %>
   
   <Location <%= @params[:location] %>>
     SetHandler server-status
