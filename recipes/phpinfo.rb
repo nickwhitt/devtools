@@ -1,7 +1,7 @@
 #
 # Author:: Nicholas Whitt (<nick.whitt@gmail.com>)
 # Cookbook Name:: devtools
-# Attribute:: webapp
+# Recipe:: xdebug
 #
 # Copyright 2012, Nicholas Whitt.
 #
@@ -18,12 +18,24 @@
 # limitations under the License.
 #
 
-default[:webapp][:proj] = "myproj"
-default[:webapp][:docroot] = "/var/www/#{node[:webapp][:proj]}"
-default[:webapp][:server_name] = node[:fqdn]
-default[:webapp][:options] = ["All"]
-default[:webapp][:allow_override] = ["All"]
-default[:webapp][:directory_index] = []
+include_recipe "apache2"
 
-default[:webapp][:status_location] = "/status"
-default[:webapp][:info_location] = "/var/www/info"
+directory node[:webapp][:info_location] do
+  owner node[:apache][:user]
+  group node[:apache][:group]
+  mode 0755
+  action :create
+  recursive true
+end
+
+template "#{node[:webapp][:info_location]}/index.php" do
+  owner node[:apache][:user]
+  group node[:apache][:user]
+  source "phpinfo.php.erb"
+end
+
+web_app "phpinfo" do
+  template "phpinfo.conf.erb"
+  server_name node[:webapp][:server_name]
+  location node[:webapp][:info_location]
+end
