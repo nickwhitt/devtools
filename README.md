@@ -32,7 +32,7 @@ License and Author
 
 Author:: Nicholas Whitt (<nick.whitt@gmail.com>)
 
-Copyright:: 2012, Nicholas Whitt
+Copyright:: 2012-2013, Nicholas Whitt
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
